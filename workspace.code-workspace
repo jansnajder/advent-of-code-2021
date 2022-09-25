@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "sw",
+			"path": "sw"
+		},
+		{
+			"name": "cm",
+			"path": "cm"
+		}
+	]
+}
