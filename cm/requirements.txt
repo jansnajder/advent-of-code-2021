@@ -1,1 +1,2 @@
 mypy
+numpy~=1.23
