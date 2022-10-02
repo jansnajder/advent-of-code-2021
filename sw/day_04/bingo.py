@@ -46,7 +46,7 @@ class BingoBoard:
 
         return self.won
         
-def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], np.ndarray]:
+def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], List[np.ndarray]]:
     '''
     Load bingo boards and bing inputs
 
@@ -56,14 +56,16 @@ def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], np.ndarray]
     :return bingo: parsed bingo boards
     '''
     with open(inputs_path, 'r', encoding='utf-8') as f:
-        inputs = f.read().split(',')
-        inputs = list(map(int, inputs))
+        inputs_raw = f.read().split(',')
+        inputs = list(map(int, inputs_raw))
     
     with open(bingo_path, 'r', encoding='utf-8') as f:
-        bingo = f.read().split('\n\n')
+        bingo_raw = f.read().split('\n\n')
 
-    for board_idx, bingo_board in enumerate(bingo):
-        bingo[board_idx] = np.fromstring(bingo[board_idx], dtype=int, sep=' ').reshape((5, 5))
+    bingo: List[np.ndarray] = []
+
+    for value in bingo_raw:
+        bingo.append(np.fromstring(value, dtype=int, sep=' ').reshape((5, 5)))
 
     return inputs, bingo
 
@@ -90,10 +92,10 @@ if __name__ == '__main__':
     bingo_path = 'day_04/bingo_boards.txt'
     inputs, bingo_raw = load_data(inputs_path, bingo_path)
 
-    bingo_boards = []
+    bingo_boards: List[BingoBoard] = []
 
-    for board in bingo_raw:
-        bingo_boards.append(BingoBoard(board))
+    for bingo in bingo_raw:
+        bingo_boards.append(BingoBoard(bingo))
 
     winners = []
 
@@ -107,5 +109,5 @@ if __name__ == '__main__':
                 if win:
                     winners.append((board, input))
         
-    print(get_result(winners[0][0], winners[0][1]))
-    print(get_result(winners[-1][0], winners[-1][1]))
+    print(f'Part 1 result: {get_result(winners[0][0], winners[0][1])}')
+    print(f'Part 2 result: {get_result(winners[-1][0], winners[-1][1])}')

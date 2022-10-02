@@ -1,2 +1,2 @@
-mypy
+mypy>=0.981
 numpy~=1.23
