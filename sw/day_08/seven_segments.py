@@ -10,7 +10,7 @@ from typing import List, Tuple
 
 def load_data(path: str) -> Tuple[List[List[str]], List[List[str]]]:
     '''
-    Load seven segments data
+    Load seven segments data.
 
     :param path: path to txt file
     :return first_part: part before |
