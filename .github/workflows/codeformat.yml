@@ -1,4 +1,4 @@
-name: lint
+name: codeformat
 
 on: [push]
 
@@ -19,6 +19,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r cm/requirements_tests.txt
         pip install -r cm/requirements.txt
-    - name: Analysing the code with mypy
+    - name: Checking the codeformat with yapf
       run: |
-        mypy $(git ls-files '*.py')
+        yapf $(git ls-files '*.py')

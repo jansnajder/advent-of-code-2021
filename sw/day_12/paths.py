@@ -6,15 +6,17 @@ def load_data(path):
 
     for connection_raw in connections_raw:
         connection = connection_raw.split('-')
-        paths = {}
-        paths[connection[0]] = connection[1]
-        paths[connection[1]] = connection[0]
 
-        for key, value in paths.items():
-            if key in nodes:
-                nodes[key].append(value)
-            else:
-                nodes[key] = [value]
+        if len(connection) == 2:
+            paths = {}
+            paths[connection[0]] = connection[1]
+            paths[connection[1]] = connection[0]
+
+            for key, value in paths.items():
+                if key in nodes:
+                    nodes[key].append(value)
+                else:
+                    nodes[key] = [value]
 
     return nodes
 
@@ -44,16 +46,7 @@ def find_route_dfs(nodes, opened, routes, visited_small_twice):
 
 
 if __name__ == '__main__':
-    test_path = 'test_inputs_1.txt'
-    test_nodes = load_data(test_path)
-
-    route = ['start']
-    opened = [route]
-    test_routes = []
-    test_routes = find_route_dfs(test_nodes, opened, test_routes, False)
-    assert len(test_routes) == 36
-
-    path = 'inputs.txt'
+    path = 'day_12/inputs.txt'
     nodes = load_data(path)
 
     route = ['start']
