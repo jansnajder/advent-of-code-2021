@@ -1,9 +1,9 @@
-name: codeformat
+name: code-format
 
 on: [push]
 
 jobs:
-  build:
+  code-format:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,6 +19,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r cm/requirements_tests.txt
         pip install -r cm/requirements.txt
-    - name: Checking the codeformat with yapf
+    - name: Checking the code format with yapf
       run: |
         yapf $(git ls-files '*.py')
