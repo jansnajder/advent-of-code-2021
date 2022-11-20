@@ -19,6 +19,7 @@ def load_data(path: str) -> List[int]:
 
     return data
 
+
 def count_increments(data: List[int]) -> int:
     '''
     Count elements which increased compared to the previous element
@@ -29,7 +30,7 @@ def count_increments(data: List[int]) -> int:
     increasing = 0
 
     for idx, number in enumerate(data):
-        if idx > 0 and number > int(data[idx-1]):
+        if idx > 0 and number > int(data[idx - 1]):
             increasing += 1
 
     return increasing
@@ -37,8 +38,8 @@ def count_increments(data: List[int]) -> int:
 
 def sliding_window(data: List[int], window_length: int) -> int:
     '''
-    Create list of sums by going through the input list with sliding window. Call count_increments on the newly
-    created list.
+    Create list of sums by going through the input list with sliding window. Call count_increments on the newly created
+    list.
 
     :param data: list with numbers
     :param window_length: length of sliding window

@@ -1,8 +1,8 @@
 # AoC 2021 - day 10
 # Input file shows navigation lines.
 #
-# Part 1:  - find value of illegal character - character which does not comply
-#            to the opening sequence. Result is sum of these values.
+# Part 1:  - find value of illegal character - character which does not comply to the opening sequence. Result is sum of
+#            these values.
 # Part 2:  - find missing closing sequence
 
 from typing import List

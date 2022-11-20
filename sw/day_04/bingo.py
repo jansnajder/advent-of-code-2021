@@ -1,12 +1,10 @@
 # AoC 2021 - day 4
 # Input file shows bingo boards and bingo inputs
 #
-# Part 1: Figure out which board will win first. Calculate the final score by 
-#         multiplying sum of all unmarked numbers with the input number, which
-#         caused the board to win. What will be the final score?
-# Part 2: Figure out which board will win last. Calculate the final score by 
-#         multiplying sum of all unmarked numbers with the input number, which
-#         caused the board to win. What will be the final score?
+# Part 1: Figure out which board will win first. Calculate the final score by multiplying sum of all unmarked numbers
+#         with the input number, which caused the board to win. What will be the final score?
+# Part 2: Figure out which board will win last. Calculate the final score by multiplying sum of all unmarked numbers
+#         with the input number, which caused the board to win. What will be the final score?
 
 import numpy as np
 
@@ -45,7 +43,8 @@ class BingoBoard:
             self.won = True
 
         return self.won
-        
+
+
 def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], List[np.ndarray]]:
     '''
     Load bingo boards and bing inputs
@@ -58,7 +57,7 @@ def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], List[np.nda
     with open(inputs_path, 'r', encoding='utf-8') as f:
         inputs_raw = f.read().split(',')
         inputs = list(map(int, inputs_raw))
-    
+
     with open(bingo_path, 'r', encoding='utf-8') as f:
         bingo_raw = f.read().split('\n\n')
 
@@ -69,10 +68,11 @@ def load_data(inputs_path: str, bingo_path: str) -> Tuple[List[int], List[np.nda
 
     return inputs, bingo
 
+
 def get_result(bingo_board: BingoBoard, input: int) -> int:
     '''
     Get result for given bingo board and its winning input.
-    
+
     :param bingo_board: winning bingo board
     :param input: winning bing input
     :return: result of the task
@@ -84,7 +84,7 @@ def get_result(bingo_board: BingoBoard, input: int) -> int:
             if number > 0:
                 sum += number
 
-    return sum*input
+    return sum * input
 
 
 if __name__ == '__main__':
@@ -108,6 +108,6 @@ if __name__ == '__main__':
 
                 if win:
                     winners.append((board, input))
-        
+
     print(f'Part 1 result: {get_result(winners[0][0], winners[0][1])}')
     print(f'Part 2 result: {get_result(winners[-1][0], winners[-1][1])}')

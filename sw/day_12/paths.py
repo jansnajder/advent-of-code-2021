@@ -1,5 +1,20 @@
-def load_data(path):
-    nodes = {}
+# AoC 2021 - day 11
+# Input file show paths between nodes.
+#
+# Part 1:  - Find how many routes are between start and end, if nodes in lowercase can be visited only once.
+# Part 2:  - Nodes in lowercase can be visited twice! How many routes are there?
+
+from typing import Dict, List
+
+
+def load_data(path: str) -> Dict[str, List[str]]:
+    '''
+    Load data from file on input path. Data are represented as dict of possible paths from each node.
+
+    :param path: path to input txt file
+    :return nodes: dict of paths from each node
+    '''
+    nodes: Dict[str, List[str]] = {}
 
     with open(path, 'r', encoding='utf-8') as f:
         connections_raw = f.read().split('\n')
@@ -8,7 +23,7 @@ def load_data(path):
         connection = connection_raw.split('-')
 
         if len(connection) == 2:
-            paths = {}
+            paths: Dict[str, str] = {}
             paths[connection[0]] = connection[1]
             paths[connection[1]] = connection[0]
 
@@ -21,15 +36,26 @@ def load_data(path):
     return nodes
 
 
-def find_route_dfs(nodes, opened, routes, visited_small_twice):
+def find_route_dfs(
+    nodes: Dict[str, List[str]], opened: List[List[str]], routes: List[List[str]], visited_small_twice: bool
+) -> List[List[str]]:
+    '''
+    Find route with help of depth first search.
+
+    :param nodes: dict of connections
+    :param opened: list of opened paths
+    :param routes: list of routes from 'start' to 'end'
+    :param visited_small_twice: bool indicating if nodes in lowercase can be visited twice
+    :return routes: list of routes from 'start' to 'end'
+    '''
     route = opened[0]
     node = route[-1]
     visited = []
     del opened[0]
 
-    for node in route:
-        if node.islower():
-            visited.append(node)
+    for node_ in route:
+        if node_.islower():
+            visited.append(node_)
 
     for value in nodes[node]:
         if value == 'end':
@@ -48,9 +74,14 @@ def find_route_dfs(nodes, opened, routes, visited_small_twice):
 if __name__ == '__main__':
     path = 'day_12/inputs.txt'
     nodes = load_data(path)
-
     route = ['start']
+    routes: List[List[str]] = []
+
     opened = [route]
-    routes = []
+    routes = find_route_dfs(nodes, opened, routes, True)
+    print(f'Result of part one: {len(routes)}')
+
+    opened = [route]
+    routes.clear()
     routes = find_route_dfs(nodes, opened, routes, False)
-    print(len(routes))
+    print(f'Result of part two: {len(routes)}')

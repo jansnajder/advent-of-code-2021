@@ -10,9 +10,8 @@
 #               - It increases your horizontal position by X units.
 #               - It increases your depth by your aim multiplied by X.
 #
-#         Calculate the horizontal position and depth you would have after
-#         following the planned course. What do you get if you multiply your 
-#         final horizontal position by your final depth?
+# Calculate the horizontal position and depth you would have after following the planned course. What do you get if you
+# multiply your final horizontal position by your final depth?
 
 import copy
 
@@ -30,6 +29,7 @@ def load_data(path: str) -> List[str]:
         binary_numbers = f.read().split('\n')
 
     return binary_numbers
+
 
 def get_power_consumption(binary_numbers: List[str]) -> int:
     '''
@@ -53,7 +53,7 @@ def get_power_consumption(binary_numbers: List[str]) -> int:
 
         if ones_candidate > zeros_candidate:
             binary_gamma_rate = (binary_gamma_rate << 1) + 1
-            binary_epsilon_rate = (binary_epsilon_rate << 1) 
+            binary_epsilon_rate = (binary_epsilon_rate << 1)
         else:
             binary_gamma_rate = (binary_gamma_rate << 1)
             binary_epsilon_rate = (binary_epsilon_rate << 1) + 1
@@ -65,8 +65,7 @@ def get_power_consumption(binary_numbers: List[str]) -> int:
 
 def get_rating(binary_numbers: List[str], idx: int, oxygen: bool) -> List[str]:
     '''
-    Get rating of co2 or oxygen according to the specification of the task. This
-    function uses recursion.
+    Get rating of co2 or oxygen according to the specification of the task. This function uses recursion.
 
     :param binary_number: list of input binary number
     :param idx: index of currently inspected bits

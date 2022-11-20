@@ -1,10 +1,8 @@
 # AoC 2021 - day 9
 # Input file shows map of heights
 #
-# Part 1:  - find coordinates of local minimums, result is sum of heights of minimums + number of
-#            minimums
-# Part 2:  - find three largest basins (area of heights lower than 8), result is multiplication
-#            of sizes
+# Part 1:  - find coordinates of local minimums, result is sum of heights of minimums + number of minimums
+# Part 2:  - find three largest basins (area of heights lower than 8), result is multiplication of sizes
 
 from typing import List, Tuple
 
@@ -59,8 +57,8 @@ class HeightMap:
     def _expand_coordinates(self, closed: TCoordinates, opened: TCoordinates,
                             size: int) -> Tuple[int, TCoordinates, TCoordinates]:
         '''
-        Expand first coordinate of opened list. If the neighbor is not 9, add it to opened list. While there are coordinates on
-        opened list, call expand_coordinates again.
+        Expand first coordinate of opened list. If the neighbor is not 9, add it to opened list. While there are
+        coordinates on opened list, call expand_coordinates again.
 
         :param closed: list of already expanded coordinates
         :param opened: list of coordinates to expand

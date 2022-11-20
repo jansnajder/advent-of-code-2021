@@ -1,25 +1,20 @@
 # AoC 2021 - day 2
 # Input file shows instructions to the submarine.
 #
-# Part 1: Each bit in the gamma/epsilon rate can be determined by finding the 
-#         most/least common bit in the corresponding position of all numbers 
-#         in the diagnostic report.
+# Part 1: Each bit in the gamma/epsilon rate can be determined by finding the most/least common bit in the corresponding
+#         position of all numbers in the diagnostic report.
 #
-#         Use the binary numbers in your diagnostic report to calculate the 
-#         gamma rate and epsilon rate, then multiply them together. What is the
-#         power consumption of the submarine? 
-# Part 2:  - To find oxygen generator rating, determine the most common value 
-#            (0 or 1) in the current bit position, and keep only numbers with
-#            that bit in that position. If 0 and 1 are equally common, keep
-#            values with a 1 in the position being considered.
-#          - To find CO2 scrubber rating, determine the least common value 
-#            (0 or 1) in the current bit position, and keep only numbers with
-#            that bit in that position. If 0 and 1 are equally common, keep
-#            values with a 0 in the position being considered.
+#         Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply
+#         them together. What is the power consumption of the submarine?
+# Part 2:  - To find oxygen generator rating, determine the most common value (0 or 1) in the current bit position, and
+#            keep only numbers with that bit in that position. If 0 and 1 are equally common, keep values with a 1 in
+#             the position being considered.
+#          - To find CO2 scrubber rating, determine the least common value (0 or 1) in the current bit position, and
+#            keep only numbers with that bit in that position. If 0 and 1 are equally common, keep values with a 0 in
+#            the position being considered.
 #
-#         Use the binary numbers in your diagnostic report to calculate the 
-#         oxygen generator rating and CO2 scrubber rating, then multiply them 
-#         together. What is the life support rating of the submarine?
+# Use the binary numbers in your diagnostic report to calculate the oxygen generator rating and CO2 scrubber rating,
+# then multiply them together. What is the life support rating of the submarine?
 
 from typing import List
 

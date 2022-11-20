@@ -1,15 +1,15 @@
 # AoC 2021 - day 6
 # Input file shows initial ages of lantern-fishes.
-# 
+#
 # Lantern-fish with an internal timer value of 3:
-# 
+#
 #   - After one day, its internal timer would become 2.
 #   - After another day, its internal timer would become 1.
 #   - After another day, its internal timer would become 0.
-#   - After another day, its internal timer would reset to 6, and it would 
-#     create a new lantern-fish with an internal timer of 8.
-#   - After another day, the first lantern-fish would have an internal timer
-#     of 5, and the second lantern-fish would have an internal timer of 7.
+#   - After another day, its internal timer would reset to 6, and it would create a new lantern-fish with an internal
+#     timer of 8.
+#   - After another day, the first lantern-fish would have an internal timer of 5, and the second lantern-fish would
+#     have an internal timer of 7.
 #
 # Part 1:  - How many lantern-fishes will be there after 80 days?
 # Part 2:  - How many lantern-fishes will be there after 256 days?

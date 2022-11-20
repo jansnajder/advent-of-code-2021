@@ -1,8 +1,7 @@
 # AoC 2021 - day 3
 # Input file shows seven segments number - each segment is one letter.
 #
-# Part 1:  - decode segment with known length and count how many of
-#            them are in the input after |
+# Part 1:  - decode segment with known length and count how many of them are in the input after |
 # Part 2:  - decode all segments and sum all numbers after |
 
 from typing import List, Tuple

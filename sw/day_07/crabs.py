@@ -4,8 +4,7 @@
 # Part 1:  - each change of position costs 1 fuel
 # Part 2:  - the cost increases with each change of position
 #
-#           Find the common position for the crab population, which requires
-#           the least usage of fuel.
+# Find the common position for the crab population, which requires the least usage of fuel.
 
 from typing import List
 
